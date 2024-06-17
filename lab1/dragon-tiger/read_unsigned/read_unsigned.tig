@@ -1,0 +1,25 @@
+let
+    /* Function to read a positive integer from standard input.
+       Returns -1 on error or invalid input. */
+    function read_unsigned() : int =
+        let
+            var n : int := 0
+            var ch : string := getchar()
+        in
+            if ch = "" | ch = "\n" then -1
+            else(
+                while ch <> "" & ch >= "0" & ch <= "9" do
+                    (
+                        n := n * 10 + ord(ch) - ord("0");
+                        ch := getchar()
+                    );
+                if ch = "" | ch = "\n" then n
+                else -1
+            )
+        end
+
+    var a : int := read_unsigned()
+in
+    print_int(a * 2);
+    print("\n")
+end
